@@ -1,0 +1,51 @@
+{
+  "name": "sportswear-ecommerce",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "scrape": "node scripts/scraper.js",
+    "scrape:all": "node scripts/scraper.js all",
+    "scrape:mizo": "node scripts/scraper.js mizojerseyhome",
+    "scrape:zeal": "node scripts/scraper.js zealevince",
+    "price:compare": "node scripts/scraper.js && node -e \"const { WebScraper } = require('./scripts/scraper'); (async () => { const scraper = new WebScraper(); await scraper.init(); const products = await scraper.scrapeAllStores(); const comparisons = await scraper.generatePriceComparisons(products); await scraper.saveProducts(comparisons, 'price_comparisons.json'); await scraper.close(); console.log('Price comparison completed'); })()\""
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "lucide-react": "^0.292.0",
+    "framer-motion": "^10.16.0",
+    "swiper": "^11.0.0",
+    "cheerio": "^1.0.0-rc.12",
+    "axios": "^1.6.0",
+    "puppeteer": "^21.5.0",
+    "next-seo": "^6.4.0",
+    "react-hook-form": "^7.47.0",
+    "zustand": "^4.4.0",
+    "react-hot-toast": "^2.4.0",
+    "sharp": "^0.32.0",
+    "playwright": "^1.40.0",
+    "sitemap": "^7.1.1",
+    "robots-txt": "^0.0.12",
+    "schema-dts": "^1.1.2",
+    "react-helmet-async": "^2.0.4",
+    "next-sitemap": "^4.2.3",
+    "compression": "^1.7.4",
+    "helmet": "^7.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.0.0"
+  }
+}
